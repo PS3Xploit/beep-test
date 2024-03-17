@@ -3,21 +3,25 @@ var debug=false;
 var ua = navigator.userAgent;
 var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
 
+// Using custom package manager xml for 4.89. OFW sprx does not get touched.
 var explore_plugin_usb='/explore_plugin.sprx';
 var explore_plugin_blind='/dev_blind/vsh/module/explore_plugin.sprx';
 var explore_plugin_fsize=0x18CD85;
+//var explore_plugin_usb='/han_package_manager.xml';
+//var explore_plugin_blind='/dev_blind/vsh/resource/explore/xmb/han_package_manager.xml';
+//var explore_plugin_fsize=0x23E8;
 
 var explore_pluginrco_usb='/explore_plugin_full.rco';
 var explore_pluginrco_blind='/dev_blind/vsh/resource/explore_plugin_full.rco';
-var explore_pluginrco_fsize=0x227ED0;
+var explore_pluginrco_fsize=0x229920;
 
 var explore_pluginrco2_usb='/explore_category_game.rco';
 var explore_pluginrco2_blind='/dev_blind/vsh/resource/explore_category_game.rco';
-var explore_pluginrco2_fsize=0x3A6F4;
+var explore_pluginrco2_fsize=0x4746C;
 
 var category_game_usb='/category_game.xml';
 var category_game_blind='/dev_blind/vsh/resource/explore/xmb/category_game.xml';
-var category_game_fsize=0x8F77;
+var category_game_fsize=0xCBDF;
 
 var videoplayer_plugin_usb='/videoplayer_plugin.sprx';
 var videoplayer_plugin_blind='/dev_blind/vsh/module/videoplayer_plugin.sprx';
@@ -188,6 +192,8 @@ var gadget_mod13_addr_480=0x336878;
 var gadget_mod14_addr_480=0x632EB0;
 var gadget_mod15_addr_480=0x39D040;
 var gadget_mod16_addr_480=0x4F7318;
+var ipf1_addr_480=0x6EBB40;
+var ipf2_addr_480=0x507360;
 
 //DEX 4.81
 var toc_addr_481_d = 0x705610;
@@ -235,8 +241,8 @@ var gadget_mod13_addr_481_d=0x33E480;
 var gadget_mod14_addr_481_d=0x63AAE0;
 var gadget_mod15_addr_481_d=0x3A4C28;
 var gadget_mod16_addr_481_d=0x4FEF1C;
-var ipf1_addr_481_d=0x6FBC60; //fix offset
-var ipf2_addr_481_d=0x50EF68; //fix offset
+var ipf1_addr_481_d=0x6FBC30;
+var ipf2_addr_481_d=0x50EF64;
 
 //DEX 4.82
 var toc_addr_482_d = 0x705640;
@@ -337,8 +343,8 @@ var gadget_mod13_addr_481=0x33686C;
 var gadget_mod14_addr_481=0x632EC4;
 var gadget_mod15_addr_481=0x39D034;
 var gadget_mod16_addr_481=0x4F7328;
-var ipf1_addr_481=0x6ebb70; //fix offset
-var ipf2_addr_481=0x507374; //fix offset
+var ipf1_addr_481=0x6EBB40;
+var ipf2_addr_481=0x507370;
 
 //CEX 4.82
 var toc_addr_482 = 0x6F5550;
@@ -782,6 +788,8 @@ var gadget_mod13_addr_489=0x336870; //store_r3 gadget
 var gadget_mod14_addr_489=0x633900; //load r3 dword
 var gadget_mod15_addr_489=0x39D038; //load r3 word
 var gadget_mod16_addr_489=0x4F732C; //set toc
+var ipf1_addr_489=0x6ebb78; 
+var ipf2_addr_489=0x507374; 
 
 //CEX 4.90
 var toc_addr_490 = 0x6F5558;
@@ -829,6 +837,57 @@ var gadget_mod13_addr_490=0x33686C; //store_r3 gadget
 var gadget_mod14_addr_490=0x6338F8; //load r3 dword
 var gadget_mod15_addr_490=0x39D034; //load r3 word
 var gadget_mod16_addr_490=0x4F7328; //set toc
+var ipf1_addr_490=0x6ebb78;
+var ipf2_addr_490=0x507370;
+
+//CEX 4.91
+var toc_addr_491 = 0x6F5558;
+var default_vsh_pub_toc_491=0x6ED5AC;
+var vsh_opd_patch_491=0x96D5C;
+var vsh_opd_addr_491=0x6EBB70;
+var vsh_toc_addr_screenshot_491=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3xploit_key_toc_491=0x707A1C;// Updated From 4.83/4.84/4.85
+var toc_entry1_addr_491=0x6DA3D0;
+var toc_entry2_addr_491=0x725CE8;//idps Updated From 4.83/4.84/4.85
+var toc_entry3_addr_491=0x6DA3C8;
+var toc_entry4_addr_491=0x740000;
+var toc_entry5_addr_491=0x6EB6C8;
+var toc_entry6_addr_491=0x0;
+var gadget1_addr_491=0x097604;
+var gadget2_addr_491=0x60A0E4;
+var gadget3_addr_491=0x0D505C;
+var gadget4_addr_491=0x229838;
+var gadget5_addr_491=0x12BB1C;
+var gadget6_addr_491=0x615CDC;//malloc
+var gadget7_addr_491=0x01FFD0;//memset
+var gadget8_addr_491=0x020000;//memcpy
+var gadget9_addr_491=0x029B08;
+var gadget10_addr_491=0x62E024;
+var gadget11_addr_491=0x59A4B0;// sprintf
+var gadget12_addr_491=0x0C864C;
+var gadget13_addr_491=0x48E5A8;//free
+var gadget14_addr_491=0x48C7A0;
+var gadget15_addr_491=0x489C88;
+var gadget_mod1_addr_491=0x60EFD8;
+var gadget_mod2_addr_491=0x013B74;
+var gadget_mod3_addr_491=0x0B8E00;
+var gadget_mod4a_addr_491=0x0D9684;
+var gadget_mod4b_addr_491=0x42C778;
+var gadget_mod4c_addr_491=0x054AF0; //load r5 word
+var gadget_mod5_addr_491=0x4238DC;
+var gadget_mod6_addr_491=0x020C00;
+var gadget_mod7_addr_491=0x01A6AC;
+var gadget_mod8_addr_491=0x2BACB8;// graceful exit
+var gadget_mod9_addr_491=0x010B20;
+var gadget_mod10_addr_491=0x1C5794;
+var gadget_mod11_addr_491=0x18B144;
+var gadget_mod12_addr_491=0x6331FC; //validation gadget
+var gadget_mod13_addr_491=0x336870; //store_r3 gadget
+var gadget_mod14_addr_491=0x633900; //load r3 dword
+var gadget_mod15_addr_491=0x39D038; //load r3 word
+var gadget_mod16_addr_491=0x4F732C; //set toc
+var ipf1_addr_491=0x6ebb78; 
+var ipf2_addr_491=0x507374; 
 
 function hexh2bin(hex_val)
 {
@@ -1468,6 +1527,8 @@ function loadcex_480()
 	gadget_mod14_addr=gadget_mod14_addr_480;
 	gadget_mod15_addr=gadget_mod15_addr_480;
 	gadget_mod16_addr=gadget_mod16_addr_480;
+	ipf1_addr=ipf1_addr_480;
+	ipf2_addr=ipf2_addr_480;
 }
 function loaddex_481()
 {
@@ -2069,6 +2130,8 @@ function loadcex_489()
 	gadget_mod14_addr=gadget_mod14_addr_489;
 	gadget_mod15_addr=gadget_mod15_addr_489;
 	gadget_mod16_addr=gadget_mod16_addr_489;
+	ipf1_addr=ipf1_addr_489;
+	ipf2_addr=ipf2_addr_489;
 }
 function loadcex_490()
 {
@@ -2117,6 +2180,58 @@ function loadcex_490()
 	gadget_mod14_addr=gadget_mod14_addr_490;
 	gadget_mod15_addr=gadget_mod15_addr_490;
 	gadget_mod16_addr=gadget_mod16_addr_490;
+	ipf1_addr=ipf1_addr_490;
+	ipf2_addr=ipf2_addr_490;
+}
+function loadcex_491()
+{
+	toc_addr = toc_addr_491;
+	vsh_opd_addr=vsh_opd_addr_491;
+	vsh_opd_patch=vsh_opd_patch_491;
+	vsh_toc_addr_screenshot=vsh_toc_addr_screenshot_491;
+	vsh_ps3xploit_key_toc=vsh_ps3xploit_key_toc_491;
+	default_vsh_pub_toc=default_vsh_pub_toc_491;
+	toc_entry1_addr=toc_entry1_addr_491;
+	toc_entry2_addr=toc_entry2_addr_491;
+	toc_entry3_addr=toc_entry3_addr_491;
+	toc_entry4_addr=toc_entry4_addr_491;
+	toc_entry5_addr=toc_entry5_addr_491;
+	toc_entry6_addr=toc_entry6_addr_491;
+	gadget1_addr=gadget1_addr_491;
+	gadget2_addr=gadget2_addr_491;
+	gadget3_addr=gadget3_addr_491;
+	gadget4_addr=gadget4_addr_491;
+	gadget5_addr=gadget5_addr_491;
+	gadget6_addr=gadget6_addr_491;
+	gadget7_addr=gadget7_addr_491;
+	gadget8_addr=gadget8_addr_491;
+	gadget9_addr=gadget9_addr_491;
+	gadget10_addr=gadget10_addr_491;
+	gadget11_addr=gadget11_addr_491;
+	gadget12_addr=gadget12_addr_491;
+	gadget13_addr=gadget13_addr_491;
+	gadget14_addr=gadget14_addr_491;
+	gadget15_addr=gadget15_addr_491;
+	gadget_mod1_addr=gadget_mod1_addr_491;
+	gadget_mod2_addr=gadget_mod2_addr_491;
+	gadget_mod3_addr=gadget_mod3_addr_491;
+	gadget_mod4a_addr=gadget_mod4a_addr_491;
+	gadget_mod4b_addr=gadget_mod4b_addr_491;
+	gadget_mod4c_addr=gadget_mod4c_addr_491;
+	gadget_mod5_addr=gadget_mod5_addr_491;
+	gadget_mod6_addr=gadget_mod6_addr_491;
+	gadget_mod7_addr=gadget_mod7_addr_491;
+	gadget_mod8_addr=gadget_mod8_addr_491;
+	gadget_mod9_addr=gadget_mod9_addr_491;
+	gadget_mod10_addr=gadget_mod10_addr_491;
+	gadget_mod11_addr=gadget_mod11_addr_491;
+	gadget_mod12_addr=gadget_mod12_addr_491;
+	gadget_mod13_addr=gadget_mod13_addr_491;
+	gadget_mod14_addr=gadget_mod14_addr_491;
+	gadget_mod15_addr=gadget_mod15_addr_491;
+	gadget_mod16_addr=gadget_mod16_addr_491;
+	ipf1_addr=ipf1_addr_491;
+	ipf2_addr=ipf2_addr_491;
 }
 /*
 function dex()
@@ -2210,6 +2325,13 @@ function dex()
 			//if(document.getElementById('dex').checked===true){loaddex_490();}//alert("calling loaddex_490");
 			//else {loadcex_490();}
 			//loadcex_490();
+			//disable_trigger();
+			break;
+			
+		case "4.91":
+			//if(document.getElementById('dex').checked===true){loaddex_491();}//alert("calling loaddex_491");
+			//else {loadcex_491();}
+			//loadcex_491();
 			//disable_trigger();
 			break;
 			
@@ -2550,11 +2672,11 @@ function fill_by_16bytes(nbytes,hex_val)
 //########################## End ROP Framework functions by bguerville(under development) #########################
 function ps3chk(){
 
-	var fwCompat = ["4.00","4.10","4.11","4.20","4.21","4.25","4.30","4.31","4.40","4.41","4.45","4.46","4.50","4.53","4.55","4.60","4.65","4.66","4.70","4.75","4.76","4.78","4.80","4.81","4.82","4.83","4.84","4.85","4.86","4.87","4.88","4.89","4.90"];
+	var fwCompat = ["4.00","4.10","4.11","4.20","4.21","4.25","4.30","4.31","4.40","4.41","4.45","4.46","4.50","4.53","4.55","4.60","4.65","4.66","4.70","4.75","4.76","4.78","4.80","4.81","4.82","4.83","4.84","4.85","4.86","4.87","4.88","4.89","4.90","4.91"];
 	var ua = navigator.userAgent;
 	var uaStringCheck = ua.substring(ua.indexOf("5.0 (") + 5, ua.indexOf(") Apple") - 7);
 	var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.83 - 4.88 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
+	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.83 - 4.91 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
 	var msgCongrats = "Congratulations! We've detected your PlayStation 3 is running FW " + fwVersion + ", which is compatible with ps3hen! Enjoy!";
 	switch (uaStringCheck) {
 		case "PLAYSTATION":
@@ -2623,10 +2745,16 @@ function ps3chk(){
 					//alert(msgHFW);
 //					initDEX();
 					loadcex_490();
+					break;	
+					
+				case fwCompat[33]:
+					//alert(msgHFW);
+//					initDEX();
+					loadcex_491();
 					break;					
 					
 				default:
-					alert('Your PS3 is not on FW 4.80 - 4.90! Your current running FW version is ' + fwVersion + ', which is not compatible with PS3HEN. All features have been disabled');
+					alert('Your PS3 is not on FW 4.80 - 4.91! Your current running FW version is ' + fwVersion + ', which is not compatible with PS3HEN. All features have been disabled');
 					disable_all();
 					break;
 			}
